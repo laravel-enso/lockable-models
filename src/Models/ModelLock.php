@@ -10,6 +10,8 @@ use LaravelEnso\Users\Models\User;
 
 abstract class ModelLock extends Model
 {
+    protected $guarded = [];
+
     public function expired(): bool
     {
         return $this->expires_at->isBefore(Carbon::now());
@@ -28,5 +30,12 @@ abstract class ModelLock extends Model
     public function scopeIsExpired(Builder $query): Builder
     {
         return $query->where('expires_at', '<', Carbon::now());
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'expires_at' => 'datetime',
+        ];
     }
 }

@@ -11,6 +11,8 @@ use LaravelEnso\Users\Models\User;
 
 abstract class LockableModel extends Model
 {
+    protected $guarded = [];
+
     public function lock(): Relation
     {
         $self = static::class;
