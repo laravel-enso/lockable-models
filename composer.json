@@ -30,7 +30,7 @@
     },
     "autoload": {
         "psr-4": {
-            "LaravelEnso\\lockable-models\\": "src/"
+            "LaravelEnso\\LockableModels\\": "src/"
         }
     },
     "extra": {
