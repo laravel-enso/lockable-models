@@ -1,0 +1,44 @@
+{
+    "name": "laravel-enso/lockable-models",
+    "description": "Log management dependency for Laravel Enso",
+    "keywords": [
+        "laravel-enso",
+        "lockable-models",
+        "laravel-lockable-models"
+    ],
+    "homepage": "https://github.com/laravel-enso/lockable-models",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adrian Ocneanu",
+            "email": "aocneanu@gmail.com",
+            "homepage": "https://laravel-enso.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Vlad Chiovianu",
+            "email": "vlad.chiovianu@earthlink.ro",
+            "homepage": "https://laravel-enso.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "laravel-enso/core": "^10.0",
+        "laravel-enso/helpers": "^3.0",
+        "laravel-enso/migrator": "^2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "LaravelEnso\\lockable-models\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LaravelEnso\\LockableModels\\AppServiceProvider"
+            ],
+            "aliases": []
+        }
+    }
+}
