@@ -14,6 +14,8 @@ It is meant for collaborative backoffice flows where a record should be protecte
 
 Locks are user-aware, expire automatically after a configurable number of minutes, and allow the locking user to continue working on the same record while blocking everyone else.
 
+The package depends on `laravel-enso/users` for lock ownership and display identity. It does not depend on `people` directly; the lock message uses the user model's public display API.
+
 ## Installation
 
 Install the package:

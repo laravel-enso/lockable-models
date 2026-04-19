@@ -9,6 +9,6 @@ class ModelLockException extends EnsoException
 {
     public static function locked(ModelLock $lock)
     {
-        return new self(__('Locked by: :user', ['user' => $lock->user->person->name]));
+        return new self(__('Locked by: :user', ['user' => $lock->user->appellative()]));
     }
 }

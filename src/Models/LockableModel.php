@@ -23,23 +23,35 @@ abstract class LockableModel extends Model
 
     public function lockFor(User $user): void
     {
-        $existing = DB::table($this->lock()->getRelated()->getTable())
+        $related = $this->lock()->getRelated();
+        $foreignKey = $this->lock()->getForeignKeyName();
+
+        $existing = DB::table($related->getTable())
             ->where($this->lock()->getForeignKeyName(), $this->id)
             ->lockForUpdate()
             ->first();
 
         if ($existing) {
+            $related::query()
+                ->whereKey($existing->id)
+                ->update([
+                    'user_id' => $user->id,
+                    'expires_at' => Carbon::now()->addMinutes($this->lockForMinutes()),
+                ]);
+
             return;
         }
 
-        $this->lock()->updateOrCreate(['user_id' => $user->id], [
+        $this->lock()->create([
+            $foreignKey => $this->id,
+            'user_id' => $user->id,
             'expires_at' => Carbon::now()->addMinutes($this->lockForMinutes()),
         ]);
     }
 
     public function unlockFor(User $user): void
     {
-        $this->lock()->whereUserId($user->id)->first()->delete();
+        $this->lock()->whereUserId($user->id)->first()?->delete();
     }
 
     public function lockForMinutes(): int
