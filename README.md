@@ -5,6 +5,7 @@
 [![Downloads](https://poser.pugx.org/laravel-enso/lockable-models/downloads)](https://packagist.org/packages/laravel-enso/lockable-models)
 [![PHP](https://img.shields.io/badge/php-8.3%2B-777bb4.svg)](composer.json)
 [![Issues](https://img.shields.io/github/issues/laravel-enso/lockable-models.svg)](https://github.com/laravel-enso/lockable-models/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/lockable-models.svg)](https://github.com/laravel-enso/lockable-models/pulls)
 
 ## Description
 
