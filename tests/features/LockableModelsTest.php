@@ -1,14 +1,8 @@
 <?php
 
-require_once __DIR__.'/../../src/Models/ModelLock.php';
-require_once __DIR__.'/../../src/Models/LockableModel.php';
-require_once __DIR__.'/../../src/Exceptions/ModelLockException.php';
-require_once __DIR__.'/../../src/Http/Middleware/PreventActionOnLockedModels.php';
-require_once __DIR__.'/../../src/Http/Middleware/UnlocksModelOnTerminate.php';
-
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
@@ -21,7 +15,6 @@ use LaravelEnso\Users\Models\User;
 use PHPUnit\Framework\Attributes\Test;
 use Symfony\Component\HttpFoundation\Response;
 use Tests\TestCase;
-use Illuminate\Routing\Middleware\SubstituteBindings;
 
 class LockableModelsTest extends TestCase
 {
